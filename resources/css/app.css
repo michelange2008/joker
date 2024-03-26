@@ -1,3 +1,52 @@
+@import '/node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+    .h1 {
+        @apply text-2xl sm:text-4xl
+    }
+    .h2 {
+        @apply text-xl font-extrabold sm:text-2xl;
+    }
+    .h3 {
+        @apply text-lg font-bold sm:text-xl;
+    }
+    .btn {
+        @apply inline-flex flex-row gap-0 sm:gap-2 justify-center items-center h-8 sm:h-auto
+        shadow-md rounded px-2 sm:px-3 sm:py-2 border border-transparent 
+        text-xs sm:text-base text-white hover:text-black active:text-white font-thin text-center truncate
+        transition duration-150 ease-out hover:ease-in
+        focus:outline-none focus:ring-2 focus:ring-offset-2
+        sm:my-4 my-1 mr-1
+    }
+
+    .btn-success {
+        @apply bg-vert-700 hover:bg-vert-500 focus:ring-vert-500 active:bg-vert-900  active:ring-vert-900
+    }
+    .btn-neutre {
+        @apply bg-gray-700 hover:bg-gray-500 focus:ring-gray-500 active:bg-gray-900  active:ring-gray-900
+    }
+    .titre {
+        @apply flex items-center gap-3 px-3 py-2 rounded h1 text-gray-100
+    }
+    .titre-1 {
+        @apply flex items-end gap-2 px-3 py-2 rounded h2 text-white
+    }
+    .input-form {
+        @apply block mt-1 w-full bg-gray-200 border-transparent focus:border-gray-500 
+        focus:bg-white focus:ring-0
+    }
+    .equilibre {
+        @apply bg-vert-300 font-bold
+    }
+    .toxicite {
+        @apply bg-brique-900 text-white
+    }
+    .input {
+        @apply mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black
+    }
+}

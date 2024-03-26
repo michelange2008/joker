@@ -17,7 +17,7 @@ class Cartes extends Component
     public $type_id = '';
     #[Validate('required', message: 'Un titre est obligatoire et doit compter moins de 191 caractères')]
     public $name;
-    #[Validate('max:65000', message: 'La description ne doit pas dépasser 65000 charactères.')]
+    #[Validate('max:65000', message: 'La description ne doit pas dépasser 65000 caractères.')]
     public $description;
 
     public function mount()

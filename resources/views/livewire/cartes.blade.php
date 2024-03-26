@@ -9,9 +9,11 @@
                 @include('joker.carte-create')
             </div>
         </div>
-        <div>
+        <div class="col-span-2">
             <div>
-                <livewire:carte-edit :$carte :key="$carte->id"></livewire:carte-edit> 
+                @if ($carte != null)
+                    <livewire:carte-edit :$carte :key="$carte->id"></livewire:carte-edit>
+                @endif
             </div>
         </div>
     </div>

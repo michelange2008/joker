@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Carte;
 use App\Models\Type;
 use Illuminate\Database\Eloquent\Collection;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -50,6 +51,12 @@ class Cartes extends Component
         Carte::destroy($id);
         $this->cartes = Carte::all();
         session()->flash('warning', 'Cette carte a été supprimée');    
+    }
+
+    #[On('carte_updated')]
+    public function cartes_maj()
+    {
+        $this->cartes = Carte::all();    
     }
 
     public function render()

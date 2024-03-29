@@ -41,7 +41,9 @@ class CarteEdit extends Component
             ->update([
                 'name' => $this->name,
                 'description' => $this->description,
-            ]);    
+            ]);
+        $this->carte = Carte::find($this->carte->id);    
+        $this->dispatch('carte_updated', carte_id: $this->carte->id);
     }
 
     #[On('spore_attache')]

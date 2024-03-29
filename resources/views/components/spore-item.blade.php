@@ -1,9 +1,9 @@
-<div class="relative hover:bg-violet-100 bg-gray-200 p-4 pr-8 flex flex-row justify-between gap-5 text-lg mb-1 active:bg-violet-800 active:text-white">
+<div class="flex relative flex-row gap-5 justify-between p-4 pr-8 mb-1 text-lg bg-gray-200 hover:bg-automne-100 active:bg-automne-800 active:text-white">
     <p>{{ $spore->texte }}&nbsp;</p>
-    <p class="bg-violet-300 px-3 rounded place-self-center">{{ $spore->valeur }} </p>
-    <div class="absolute -top-1 right-0 cursor-pointer">
+    <p class="place-self-center px-3 rounded bg-automne-300">{{ $spore->valeur }} </p>
+    <div class="absolute right-0 -top-1 cursor-pointer">
         @if ($delete)
-            <i class="text-gray-500 text-xl hover:text-red-700 fa-solid fa-square-xmark"
+            <i class="text-xl text-gray-500 hover:text-red-700 fa-solid fa-square-xmark"
                 wire:click="delete({{ $spore->id }})"
                 wire:confirm="Vous êtes sur de vouloir supprimer cette question ?" title="Supprimer cette question">
             </i>

@@ -25,10 +25,16 @@
     }
 
     .btn-success {
-        @apply bg-vert-700 hover:bg-vert-500 focus:ring-vert-500 active:bg-vert-900  active:ring-vert-900
+        @apply bg-blueapollo-700 hover:bg-blueapollo-500 focus:ring-blueapollo-500 active:bg-blueapollo-900  active:ring-blueapollo-900
     }
     .btn-neutre {
-        @apply bg-gray-700 hover:bg-gray-500 focus:ring-gray-500 active:bg-gray-900  active:ring-gray-900
+        @apply bg-gray-500 hover:bg-gray-300 focus:ring-gray-500 active:bg-gray-900  active:ring-gray-900
+    }
+    .btn-danger {
+        @apply bg-automne-700 hover:bg-automne-500 focus:ring-automne-500 active:bg-automne-900  active:ring-automne-900
+    }
+    .btn-horizon {
+        @apply bg-horizon-700 hover:bg-horizon-500 focus:ring-horizon-500 active:bg-horizon-900  active:ring-horizon-900
     }
     .titre {
         @apply flex items-center gap-3 px-3 py-2 rounded h1 text-gray-100
@@ -39,12 +45,6 @@
     .input-form {
         @apply block mt-1 w-full bg-gray-200 border-transparent focus:border-gray-500 
         focus:bg-white focus:ring-0
-    }
-    .equilibre {
-        @apply bg-vert-300 font-bold
-    }
-    .toxicite {
-        @apply bg-brique-900 text-white
     }
     .input {
         @apply mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-black

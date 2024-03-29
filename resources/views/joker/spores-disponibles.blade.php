@@ -1,5 +1,5 @@
 <div>
-    <h3 class="h3 p-3 bg-violet-300">Questions disponibles</h3>
+    <h3 class="p-3 h3 bg-automne-300">Questions disponibles</h3>
     <x-flash />
     <div class="py-3">
         @foreach ($spores as $spore)

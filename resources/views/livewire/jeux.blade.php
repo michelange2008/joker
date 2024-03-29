@@ -4,7 +4,7 @@
         <div id=liste_des_jeux class="my-3 bg-gray-300">
             @include('joker.jeux-liste')
         </div>
-        <div id="jeu_create" class="border my-3 bg-gray-300">
+        <div id="jeu_create" class="my-3 bg-gray-300 border">
             @include('joker.jeu-create')
         </div>
     </div>
@@ -12,28 +12,28 @@
     <div id="jeu_en_cours" class="my-3">
         <form wire:submit="update">
             @if ($jeu == null)
-                <h3 class="h3 p-3 bg-zinc-700 text-white">Aucun jeu choisi</h3>
+                <h3 class="p-3 text-white h3 bg-zinc-700">Aucun jeu choisi</h3>
             @else
                 <div x-data="{ edit_name: false, edit_description: false }">
-                    <h3 class="h3 p-3 bg-amber-700 text-white">{{ $jeu->name }}</h3>
+                    <h3 class="p-3 text-white h3 bg-horizon-700">{{ $jeu->name }}</h3>
                     <div x-show="!edit_description" class="flex flex-row justify-between items-center text-lg">
-                        <input class="input p-5" type="text" wire:model="name" />
+                        <input class="p-5 input" type="text" wire:model="name" />
                         <p x-on:click="edit_description = false" wire:click="update"
-                            class="cursor-pointer border-b hover:text-vert-700 bg-white place-self-stretch flex flex-col justify-center px-2">
+                            class="flex flex-col justify-center place-self-stretch px-2 bg-white border-b cursor-pointer hover:text-vert-700">
                             <i class="block fa-regular fa-square-check"></i>
                         </p>
                     </div>
 
-                    <div x-show="!edit_description" class="flex flex-row justify-between items-center text-lg px-1">
+                    <div x-show="!edit_description" class="flex flex-row justify-between items-center px-1 text-lg">
                         <p class="p-5 font-bold">{{ $jeu->description }}</p>
                         <p x-on:click="edit_description = true" class="cursor-pointer hover:text-vert-700">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </p>
                     </div>
                     <div x-show="!edit_description" class="flex flex-row justify-between items-center text-lg">
-                        <input class="input p-5" type="text" wire:model="description" />
+                        <input class="p-5 input" type="text" wire:model="description" />
                         <p x-on:click="edit_description = false" wire:click="update"
-                            class="cursor-pointer border-b hover:text-vert-700 bg-white place-self-stretch flex flex-col justify-center px-2">
+                            class="flex flex-col justify-center place-self-stretch px-2 bg-white border-b cursor-pointer hover:text-vert-700">
                             <i class="block fa-regular fa-square-check"></i>
                         </p>
                     </div>

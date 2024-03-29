@@ -1,5 +1,5 @@
 <div>
-    <h3 class="h3 p-3 bg-vert-700 text-white mb-3"><i class="fa-solid fa-square-plus"></i>&nbsp;Création d'une
+    <h3 class="p-3 mb-3 text-white h3 bg-blueapollo-700"><i class="fa-solid fa-square-plus"></i>&nbsp;Création d'une
         nouvelle carte</h3>
     <div class="p-3">
         <form wire:submit="create">

@@ -1,5 +1,5 @@
 <div>
-    <h3 class="h3 p-3 bg-vert-700 text-white mb-3"><i class="fa-solid fa-square-plus"></i>&nbsp;Création d'un
+    <h3 class="p-3 mb-3 text-white h3 bg-horizon-500"><i class="fa-solid fa-square-plus"></i>&nbsp;Création d'un
         nouveau jeu</h3>
     <div class="p-3">
         <form wire:submit="create">
@@ -17,7 +17,7 @@
                     {{ $message }}
                 @enderror
             </div>
-                <button class="btn btn-success" type="submit"><i
+                <button class="btn btn-horizon" type="submit"><i
                         class="fa-solid fa-floppy-disk"></i>&nbsp;Enregistrer</button>
             <button class="btn btn-neutre" type="reset">Annuler</button>
         </form>

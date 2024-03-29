@@ -22,4 +22,5 @@ class Carte extends Model
     public function type() : BelongsTo {
         return $this->belongsTo(Type::class);
     }
+
 }

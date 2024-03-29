@@ -7,6 +7,7 @@ use App\Models\Spore;
 use App\Models\Type;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Attributes\Modelable;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -43,14 +44,25 @@ class CarteEdit extends Component
             ]);    
     }
 
-    public function addSpore($id)
+    #[On('spore_attache')]
+    public function addSpore($spore_id)
     {
-        $this->carte->spores()->attach($id);
+        $this->carte->spores()->attach($spore_id);
+        $this->dispatch('spore_modifiee');
     }
 
-    public function delSpore($id)
+    #[On('spore_libere')]
+    public function libereSpore($spore_id, $carte_id)
     {
-        $this->carte->spores()->detach($id);
+        $carte = Carte::find($carte_id);
+        $carte->spores()->detach($spore_id);    
+        $this->dispatch('spore_modifiee');
+    }
+
+    public function delSpore($spore_id)
+    {
+        $this->carte->spores()->detach($spore_id);
+        $this->dispatch('spore_modifiee');
     }
 
 }

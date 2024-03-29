@@ -11,7 +11,7 @@ class Spore extends Model
     protected $guarded = [];
     public $timestamps = false;
 
-    public function carte() : BelongsToMany {
+    public function cartes() : BelongsToMany {
         return $this->belongsToMany(Carte::class);
     }
 

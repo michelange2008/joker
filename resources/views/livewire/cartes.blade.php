@@ -1,6 +1,8 @@
 <div>
     <div class="grid grid-cols-3 gap-3">
-        <div>
+
+        <div class="flex flex-col gap-3">
+            <h2 class="h2 text-center text-vert-900">CARTES</h2>
             <div>
                 @include('joker.cartes-liste')
             </div>
@@ -9,12 +11,17 @@
                 @include('joker.carte-create')
             </div>
         </div>
-        <div class="col-span-2">
+        @if ($carte != null)
             <div>
-                @if ($carte != null)
-                    <livewire:carte-edit :$carte :key="$carte->id"></livewire:carte-edit>
-                @endif
+                <livewire:carte-edit :$carte :key="$carte->id"></livewire:carte-edit>
             </div>
+        @else
+            <div>
+                <h2 class="h2 text-center text-vert-900">Choisir une carte</h2>
+            </div>
+        @endif
+        <div>
+            <livewire:spores />
         </div>
     </div>
 </div>

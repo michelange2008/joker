@@ -10,8 +10,8 @@
         @else
             @foreach ($cartes as $carte)
                 <div class="flex flex-row gap-2 justify-between items-center my-1 text-lg">
-                    <div class=" hover:bg-gray-100 p-2 cursor-pointer flex-grow  hover:bg-gray-300"
-                    wire:click="edit({{ $carte->id }})">
+                    <div class="bg-gray-200 p-2 cursor-pointer flex-grow  hover:bg-vert-300"
+                    wire:click="edit({{ $carte->id }})" title="Cliquer pour éditer">
                         <p>{{ $carte->name }}&nbsp;</p>
                         <p class="pl-2 text-base">{{ $carte->description }} </p>
                     </div>

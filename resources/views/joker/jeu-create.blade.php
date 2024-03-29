@@ -11,7 +11,7 @@
                 @enderror
             </div>
             <label for="detail">Description</label>
-            <textarea id="detail" -text" cols="30" rows="5" wire:model="description"></textarea>
+            <textarea id="detail" class="input" cols="30" rows="5" wire:model="description"></textarea>
             <div>
                 @error('description')
                     {{ $message }}

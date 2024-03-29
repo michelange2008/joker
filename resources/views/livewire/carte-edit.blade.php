@@ -1,45 +1,48 @@
-<div class="grid grid-cols-2 gap-3">
-    <div>
-        <h2 class="p-3 bg-amber-400 h3">Compléter/Modifier une carte</h2>
-        <form wire:submit="update">
-            <div class="mb-3">
-                <h2 class="p-2 pl-1 h2">{{ ucfirst($carte->name) }}</h2>
-                <p class="p-2 bg-blue-300 rounded">{{ $carte->type->intitule }}</p>
-            </div>
-            <div>
-
-                <label for="name">Titre</label>
-                <input id="name" name="name" class="input" type="text" wire:model="name" wire:key="name">
-                <div>
-                    @error('name')
-                        <span class="text-red-700">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
-            <div>
-
-                <label for="detail">Description</label>
-                <textarea id="detail" class="input" cols="30" rows="5" wire:model="description"></textarea>
-                <div>
-                    @error('description')
-                        <span class="text-red-700">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
-            <button class="btn btn-success" type="submit"><i
-                    class="fa-solid fa-floppy-disk"></i>&nbsp;Enregistrer</button>
-            <button class="btn btn-neutre" type="reset">Annuler</button>
-        </form>
-
-        @foreach ($carte->spores as $spore)
-            <div class="p-3 my-1 cursor-pointer bg-zinc-200 hover:bg-violet-300 active:bg-violet-900 active:text-white"
-                wire:click="delSpore({{ $spore->id }})">
-                {{ $spore->texte }}
-            </div>
-        @endforeach
+<div x-data="{ editCarte: false }" class="border border-vert-300  shadow-lg shadox-vert-900">
+    <div class="p-3 bg-vert-300 flex flex-col gap-3 text-center">
+        <h2 class="h3">{{ ucfirst($carte->name) }}</h2>
+        <p class="flex-shrink p-1 bg-white rounded">{{ $carte->type->intitule }}</p>
     </div>
+    <div class="p-2">
+        <div class="mb-3">
+        </div>
 
-    <div>
-        @include('joker.spores-disponibles')
+        <button @click="editCarte = !editCarte" class="btn btn-neutre">Modifier la carte</button>
+        <div x-cloak x-show="editCarte">
+            <form wire:submit="update">
+                <div>
+
+                    <label for="name">Titre</label>
+                    <input id="name" name="name" class="input" type="text" wire:model="name"
+                        wire:key="name">
+                    <div>
+                        @error('name')
+                            <span class="text-red-700">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div>
+
+                    <label for="detail">Description</label>
+                    <textarea id="detail" class="input" cols="30" rows="5" wire:model="description"></textarea>
+                    <div>
+                        @error('description')
+                            <span class="text-red-700">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+                <button class="btn btn-success" type="submit"><i
+                        class="fa-solid fa-floppy-disk"></i>&nbsp;Enregistrer</button>
+                <button class="btn btn-neutre" type="reset">Annuler</button>
+            </form>
+        </div>
+        <div>
+            <h3 class="h3 px-1 py-3 text-violet-800">Liste des questions</h3>
+            @foreach ($carte->spores as $spore)
+                <div wire:click="delSpore({{ $spore->id }})">
+                    <x-spore-item :spore="$spore" :delete="false" />
+                </div>
+            @endforeach
+        </div>
     </div>
 </div>

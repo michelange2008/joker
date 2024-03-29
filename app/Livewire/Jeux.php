@@ -9,7 +9,7 @@ use Livewire\Attributes\Rule;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class JokerAdmin extends Component
+class Jeux extends Component
 {
     public Collection $jeux;
     public Collection $types;
@@ -98,6 +98,6 @@ class JokerAdmin extends Component
 
     public function render()
     {
-        return view('livewire.joker-admin');
+        return view('livewire.jeux');
     }
 }

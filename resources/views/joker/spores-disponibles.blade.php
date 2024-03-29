@@ -1,15 +1,13 @@
 <div>
-    <h3 class="p-3 bg-violet-400 h3">Questions disponibles</h3>
-    <div>
+    <h3 class="h3 p-3 bg-violet-300">Questions disponibles</h3>
+    <x-flash />
+    <div class="py-3">
         @foreach ($spores as $spore)
-            @if (!$carte->spores->contains($spore))
-            <div class="p-3 my-1 cursor-pointer bg-zinc-200 hover:bg-violet-300 active:bg-violet-900 active:text-white"
-                wire:click="addSpore({{ $spore->id }})">
-                {{ $spore->texte }} <span class="px-2 bg-blue-300 rounded-lg">{{ $spore->valeur}}</span>
+            @if (in_array($spore->id, $spores_libres))
+            <div class="cursor-pointer" wire:click="attacheSpore({{ $spore->id }})">
+                <x-spore-item :spore="$spore" :delete="true" />
             </div>
-                
             @endif
         @endforeach
     </div>
-
 </div>

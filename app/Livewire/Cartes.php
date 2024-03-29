@@ -22,7 +22,7 @@ class Cartes extends Component
 
     public function mount()
     {
-        $this->carte = Carte::first();
+        // $this->carte = Carte::first();
         $this->types = Type::all();
         $this->cartes = Carte::all();    
     }

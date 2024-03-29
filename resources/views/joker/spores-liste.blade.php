@@ -8,12 +8,8 @@
             <p class="italic">Il n'y a encore aucune question</p>
         @else
             @foreach ($spores as $spore)
-                <div class="flex flex-row gap-2 justify-between items-center my-1 text-lg">
-                    <div class=" hover:bg-gray-100 p-2 cursor-pointer flex-grow flex flex-row gap-5"
-                        wire:click="edit({{ $spore->id }})">
-                        <p>{{ $spore->texte }}&nbsp;</p>
-                        <p class="bg-blue-300 px-3 rounded">{{ $spore->valeur }} </p>
-                    </div>
+                <div class="flex flex-row gap-2 justify-between items-center">
+                    <x-spore-item :spore="$spore" :delete="false"/>
                     <div class="cursor-pointer">
                         <i class="text-gray-500 text-xl hover:text-red-700 fa-solid fa-square-minus"
                             wire:click="delete({{ $spore->id }})"

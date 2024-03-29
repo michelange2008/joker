@@ -1,10 +1,10 @@
 <div>
-    <h3 class="h3 p-3 bg-vert-700 text-white mb-3"><i class="fa-solid fa-square-plus"></i>&nbsp;Création d'une
+    <h3 class="h3 p-3 bg-violet-700 text-white mb-3"><i class="fa-solid fa-square-plus"></i>&nbsp;Création d'une
         nouvelle question</h3>
-    <div class="p-3">
+    <div class="px-3">
         <form wire:submit="create">
-            <div class="my-3">
-                <label class="text-gray-700" for="name">Question</label>
+            <div class="my-1">
+                <label class="text-violet-700" for="name">Question</label>
                 <input id="name" name="name" class="input" type="text" wire:model="texte" wire:key="name">
                 <div>
                     @error('name')
@@ -12,8 +12,8 @@
                     @enderror
                 </div>
             </div>
-            <div class="my-3">
-                <label class="text-gray-700" for="intitule">Réponse</label>
+            <div class="my-1">
+                <label class="text-violet-700" for="intitule">Réponse</label>
                 <input id="intitule" class="input" type="text" wire:model="valeur">
                 <div>
                     @error('description')

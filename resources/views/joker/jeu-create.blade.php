@@ -3,14 +3,14 @@
         nouveau jeu</h3>
     <div class="p-3">
         <form wire:submit="create">
-            <label for="titre">Titre</label>
+            <label for="titre" class="text-horizon-700">Titre</label>
             <input id="titre" class="input" type="text" wire:model="name">
             <div>
                 @error('name')
                     {{ $message }}
                 @enderror
             </div>
-            <label for="detail">Description</label>
+            <label for="detail" class="text-horizon-700">Description</label>
             <textarea id="detail" class="input" cols="30" rows="5" wire:model="description"></textarea>
             <div>
                 @error('description')

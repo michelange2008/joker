@@ -1,12 +1,9 @@
 <div x-data="{ editCarte: false }" class="border shadow-lg border-blueapollo-300 shadox-blueapollo-900">
     <div class="flex flex-col gap-3 p-3 text-center bg-blueapollo-300">
-        <h2 class="h3">{{ ucfirst($carte->name) }}</h2>
+        <h3 class="h3">{{ ucfirst($carte->name) }}</h3>
         <p class="flex-shrink p-1 bg-white rounded">{{ $carte->type->intitule }}</p>
     </div>
     <div class="p-2">
-        <div class="mb-3">
-        </div>
-        
         <form wire:submit="update">
             <button @click="editCarte = true" x-show="!editCarte" class="btn btn-success">
                 <i class="fa-solid fa-pencil"></i>&nbsp;

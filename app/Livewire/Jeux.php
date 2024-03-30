@@ -2,36 +2,28 @@
 
 namespace App\Livewire;
 
+use App\Models\Carte;
 use App\Models\Jeu;
-use App\Models\Type;
 use Illuminate\Database\Eloquent\Collection;
-use Livewire\Attributes\Rule;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class Jeux extends Component
 {
-    public Collection $jeux;
-    public Collection $types;
     public Jeu $jeu;
-    
-    #[Validate('required|max:191', message: "Le titre est obligatoire et ne doit pas dépasser 191 charactères")]
-    public $name;
+    public Collection $jeux;
+    public Collection $cartes;
+
+    #[Validate('required|max:191', message: "Le titre est obligatoire et ne doit pas dépasser 191 caractères")]
+    public $name = '';
     
     #[Validate('max:65000', as: 'description')]
-    public $description;
-
-    public $session;
-    public string $type;
-    public array $nombres = [];
-    public array $questions = [];
-    public string $texte = '';
-    public int $valeur = 0;
+    public $description = '';
 
     public function mount()
     {
         $this->jeux = Jeu::all();
-        $this->types = Type::all();
+        $this->cartes = Carte::all();
     }
 
     public function create()
@@ -49,15 +41,13 @@ class Jeux extends Component
     public function jeu_edit($jeu_id)
     {
         $this->jeu = Jeu::find($jeu_id);
-        $this->fill(
-            $this->jeu->only('name', 'description'),
-        );
-        // $this->name = $this->jeu->name;
-        // $this->description = $this->jeu->description;
+        $this->name = $this->jeu->name;
+        $this->description = $this->jeu->description;
     }
 
     public function update()
     {
+        $this->validate();
         Jeu::where('id', $this->jeu->id)
             ->update([
                 'name' => $this->name,
@@ -65,10 +55,7 @@ class Jeux extends Component
             ]);
         $this->reset('name', 'description');
         $this->jeux = Jeu::all();
-    }
-
-    public function modifie($jeu_id)
-    {
+        $this->jeu = Jeu::find($this->jeu->id);
     }
 
     public function delete($jeu_id)
@@ -77,27 +64,20 @@ class Jeux extends Component
         $this->jeux = Jeu::all();
     }
 
-    public function annuler()
+    public function attacheCarte($carte_id)
     {
-        $this->reset('name', 'description');
+        $this->jeu->cartes()->detach($carte_id);    
+        $this->jeu->cartes()->attach($carte_id);    
     }
 
-    public function choixType()
+    public function detacheCarte($carte_id)
     {
+        $this->jeu->cartes()->detach($carte_id);
     }
 
-    public function creeNombre()
+    public function lancerJeu($jeu_id)
     {
-        $this->nombres[] = [
-            "texte" => $this->texte,
-            "valeur" => $this->valeur,
-        ];
-        $this->texte = '';
-        $this->valeur = 0;
-    }
-
-    public function render()
-    {
-        return view('livewire.jeux');
+        $this->dispatch('demarre_jeu', jeu_id: $jeu_id);
+        return redirect()->route('jeu', $jeu_id);
     }
 }

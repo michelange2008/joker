@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Carte;
 use App\Models\Jeu;
 use Illuminate\Database\Eloquent\Collection;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -13,6 +14,8 @@ class Jeux extends Component
     public Jeu $jeu;
     public Collection $jeux;
     public Collection $cartes;
+    public $cartes_show = false;
+    public $partie = false;
 
     #[Validate('required|max:191', message: "Le titre est obligatoire et ne doit pas dépasser 191 caractères")]
     public $name = '';
@@ -75,9 +78,15 @@ class Jeux extends Component
         $this->jeu->cartes()->detach($carte_id);
     }
 
+    #[On('revient_aux_jeux')]
+    public function toggle_jeux_cartes()
+    {
+        $this->cartes_show = ($this->cartes_show) ? false : true;
+    }
+
     public function lancerJeu($jeu_id)
     {
-        $this->dispatch('demarre_jeu', jeu_id: $jeu_id);
-        return redirect()->route('jeu', $jeu_id);
+        $this->partie = true;
+        $this->dispatch('go', jeu_id: $jeu_id);
     }
 }

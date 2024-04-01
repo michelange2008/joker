@@ -9,6 +9,7 @@ export default {
         './resources/views/**/*.blade.php',
     ],
     safelist: [
+        'text-white',
         'bg-red-300',
         'bg-green-300',
         'bg-blue-300',
@@ -23,7 +24,12 @@ export default {
         'bg-orange-700',
         'bg-slate-700',
         'bg-pink-700',
-
+        'bg-horizon-300',
+        'bg-horizon-500',
+        'bg-horizon-900',
+        'bg-blueapollo-300',
+        'bg-blueapollo-500',
+        'bg-blueapollo-900',
     ],
 
     theme: {

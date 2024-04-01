@@ -10,6 +10,9 @@
             <div>
                 @include('joker.carte-create')
             </div>
+
+            <x-toggle_cartes_jeux methode="revient_aux_jeux" couleur="horizon" texte="jeux" fa="dice"/>
+
         </div>
         @if ($carte != null)
             <div>

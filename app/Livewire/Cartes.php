@@ -23,7 +23,6 @@ class Cartes extends Component
 
     public function mount()
     {
-        // $this->carte = Carte::first();
         $this->types = Type::all();
         $this->cartes = Carte::all();    
     }
@@ -59,8 +58,9 @@ class Cartes extends Component
         $this->cartes = Carte::all();    
     }
 
-    public function render()
+    public function revient_aux_jeux()
     {
-        return view('livewire.cartes');
+        $this->dispatch('revient_aux_jeux');    
     }
+
 }

@@ -17,7 +17,7 @@
                 <div class="hidden sm:flex sm:items-center sm:ms-6">
                     <a class="flex flex-row gap-2 items-center p-2 rounded-lg border group border-automne-900 hover:bg-automne-100 active:bg-automne-900 active:text-white" 
                     href="{{ route('login') }}">
-                        <img class="h-8 group-active:invert" src="{{ asset('storage/joker.svg')}}" alt="">
+                        <img class="h-8 group-active:invert" src="{{ url('storage/joker.svg')}}" alt="">
                         <p>Maitre du jeu</p>
                     </a>
                 </div>

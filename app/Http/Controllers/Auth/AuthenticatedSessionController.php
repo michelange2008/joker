@@ -28,7 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('partie', absolute: false));
+        return redirect()->intended(route('jeux', absolute: false));
     }
 
     /**
